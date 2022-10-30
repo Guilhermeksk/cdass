@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c.d.a.s</title>
+</head>
+<body>
+    <button onclick="ALERTA()">a</button>
+<script>
+    function ALERTA(){
+        fetch(`https://api.hgbrasil.com/weather?format=json-cors&key=a23316fd&city_name=Mongaguá`,{
+            method: "get",
+            mode: "cors",
+            cache: "default"
+        }).then(response=>{
+            response.json().then(data=>{
+            alert(`probabilidade de chuva amanhã: ${data['results']['forecast'][0]['rain_probability']}%`);
+            })
+        })
+    }
+</script>
+</body>
